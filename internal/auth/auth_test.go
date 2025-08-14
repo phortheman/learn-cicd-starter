@@ -17,7 +17,6 @@ func TestGetAPIKey(t *testing.T) {
 		"pass":                  {input: make(http.Header), err: nil, key: "testkey"},
 		"no auth header":        {input: make(http.Header), err: auth.ErrNoAuthHeaderIncluded, key: ""},
 		"malformed auth header": {input: make(http.Header), err: auth.ErrMalformedAuthHeader, key: ""},
-		"force fail":            {input: make(http.Header), err: nil, key: ""},
 	}
 
 	tests["pass"].input.Set("Authorization", "ApiKey "+tests["pass"].key)
